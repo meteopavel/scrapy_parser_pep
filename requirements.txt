@@ -1,6 +1,8 @@
+atomicwrites==1.4.1
 attrs==21.4.0
 Automat==20.2.0
-cffi==1.15.0
+cffi==1.16.0
+colorama==0.4.6
 constantly==15.1.0
 cryptography==36.0.2
 cssselect==1.1.0
@@ -16,7 +18,7 @@ iniconfig==1.1.1
 itemadapter==0.4.0
 itemloaders==1.0.4
 jmespath==1.0.0
-lxml==4.8.0
+lxml==5.1.0
 mccabe==0.6.1
 packaging==21.3
 parsel==1.6.0
@@ -40,6 +42,7 @@ service-identity==21.1.0
 six==1.16.0
 toml==0.10.2
 Twisted==22.2.0
+twisted-iocpsupport==1.0.4
 typing_extensions==4.1.1
 w3lib==1.22.0
 zipp==3.7.0

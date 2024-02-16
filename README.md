@@ -24,8 +24,9 @@ pip install -r requirements.txt
 
 ## Использование
 ```python
-scrapy crawl pep -o pep.csv
+scrapy crawl pep
 ```
+Команда запустит асинхронный парсинг документов PEP. Результаты будут сохранены в двух файлах в папке results. Файл pep_ДатаВремя.csv будет содержать номера, названия и статусы всех PEP. Файл  status_summary_ДатаВремя.csv будет содержать сводную информацию о количестве статусов. 
 
 ## Автор
 [Павел Найденов](https://github.com/meteopavel)

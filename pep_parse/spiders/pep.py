@@ -1,16 +1,18 @@
 import scrapy
 
 from pep_parse.items import PepParseItem
+from pep_parse.settings import MAIN_DOC_URL
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
-    allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = [MAIN_DOC_URL]
+    start_urls = [f'https://{MAIN_DOC_URL}/']
 
     def parse(self, response):
-        numerical_index_section = response.css('section#numerical-index')
-        pep_links = numerical_index_section.css('a::attr(href)').extract()
+        pep_links = response.css(
+            'section#numerical-index a::attr(href)'
+        ).extract()
         pep_links = list(set(pep_links[1:]))
         pep_links.sort()
         for pep_link in pep_links:
@@ -26,3 +28,7 @@ class PepSpider(scrapy.Spider):
             'status': status,
         }
         yield PepParseItem(data)
+
+    def start_requests(self):
+        return [scrapy.Request(url, callback=self.parse)
+                for url in self.start_urls]

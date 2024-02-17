@@ -1,7 +1,10 @@
+BASE_DIR = 'results'
+MAIN_DOC_URL = 'peps.python.org'
+
 BOT_NAME = 'pep_parse'
 
-SPIDER_MODULES = ['pep_parse.spiders']
-NEWSPIDER_MODULE = 'pep_parse.spiders'
+SPIDER_MODULES = [f'{BOT_NAME}.spiders']
+NEWSPIDER_MODULE = f'{BOT_NAME}.spiders'
 
 ROBOTSTXT_OBEY = True
 
@@ -14,5 +17,5 @@ FEEDS = {
 }
 
 ITEM_PIPELINES = {
-    'pep_parse.pipelines.PepParsePipeline': 300,
+    f'{BOT_NAME}.pipelines.PepParsePipeline': 300,
 }
